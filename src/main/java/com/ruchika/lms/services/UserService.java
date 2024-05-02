@@ -52,12 +52,12 @@ public class UserService implements IUserService{
             }
             else {
                 String userId = UUID.randomUUID().toString();
-                int totalScore = 0;
+                int bookScore = 1000;
                 String originalPassword = registerUserRequest.getPassword();
                 String generatedSecuredPasswordHash = BCrypt.hashpw(originalPassword, BCrypt.gensalt(12));
                 try {
                     userRepository.saveUser(new User(userId, registerUserRequest.getDisplayName(), registerUserRequest.getEmail(),
-                    generatedSecuredPasswordHash, registerUserRequest.getRole(), totalScore));
+                    generatedSecuredPasswordHash, registerUserRequest.getRole(), bookScore));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

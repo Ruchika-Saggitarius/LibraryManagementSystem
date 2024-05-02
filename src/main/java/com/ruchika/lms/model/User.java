@@ -14,15 +14,15 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private Role role;
-    private int totalScore;
+    private int bookScore;
     
-    public User(String userId, String displayName, String email, String password, Role role, int totalScore) {
+    public User(String userId, String displayName, String email, String password, Role role, int bookScore) {
         this.userId = userId;
         this.displayName = displayName;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.totalScore = totalScore;
+        this.bookScore = bookScore;
     }
 
     public String getUserId() {
@@ -61,6 +61,14 @@ public class User implements UserDetails {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public int getBookScore() {
+        return bookScore;
+    }
+
+    public void setBookScore(int bookScore) {
+        this.bookScore = bookScore;
+    }
     
 
     @Override
@@ -91,14 +99,6 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }   
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
     }
 
 
