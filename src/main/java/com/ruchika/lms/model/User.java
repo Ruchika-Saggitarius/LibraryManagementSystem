@@ -15,14 +15,16 @@ public class User implements UserDetails {
     private String password;
     private Role role;
     private int bookScore;
+    private int fine;
     
-    public User(String userId, String displayName, String email, String password, Role role, int bookScore) {
+    public User(String userId, String displayName, String email, String password, Role role, int bookScore, int fine) {
         this.userId = userId;
         this.displayName = displayName;
         this.email = email;
         this.password = password;
         this.role = role;
         this.bookScore = bookScore;
+        this.fine = fine;
     }
 
     public String getUserId() {
@@ -68,6 +70,14 @@ public class User implements UserDetails {
 
     public void setBookScore(int bookScore) {
         this.bookScore = bookScore;
+    }
+
+    public int getFine() {
+        return fine;
+    }
+
+    public void setFine(int fine) {
+        this.fine = fine;
     }
     
 

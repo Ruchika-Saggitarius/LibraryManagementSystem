@@ -53,11 +53,12 @@ public class UserService implements IUserService{
             else {
                 String userId = UUID.randomUUID().toString();
                 int bookScore = 1000;
+                int fine = 0;
                 String originalPassword = registerUserRequest.getPassword();
                 String generatedSecuredPasswordHash = BCrypt.hashpw(originalPassword, BCrypt.gensalt(12));
                 try {
                     userRepository.saveUser(new User(userId, registerUserRequest.getDisplayName(), registerUserRequest.getEmail(),
-                    generatedSecuredPasswordHash, registerUserRequest.getRole(), bookScore));
+                    generatedSecuredPasswordHash, registerUserRequest.getRole(), bookScore, fine));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
